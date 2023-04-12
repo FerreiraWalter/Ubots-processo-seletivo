@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "Servidor para o projeto de hotelaria Accomodare Hotel",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "jest",
+    "build": "npx tsc",
+    "dev": "ts-node-esm src/server.ts"
+  },
+  "author": "Walter Ferreira Ramos Junior",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.12.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/jest": "^29.5.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.11",
+    "concurrently": "^8.0.1",
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.3"
+  }
+}
