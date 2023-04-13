@@ -2,7 +2,27 @@
 
 
 ## ❓ O que é:
-	@@ -27,12 +27,13 @@ Após a instalação para iniciar a aplicação use o seguinte comando no consol
+API REST na qual seja possível: Criar, Atualizar, Listar, Deletar e Avaliar filmes
+
+
+## 🚘 Inicialização:
+Para instalar todas as dependências da aplicação use o seguinte comando no console:
+
+```sh
+ npm install
+```
+Após a instalação para iniciar a aplicação use o seguinte comando no console:
+```sh
+ npm run dev
+```
+
+## 🗺️ Funcionamento:
+- **Back-end** -> Se tudo ocorrer como o planejado o servidor estará rodando na porta **8080**
+- **.env** -> as variáveis de ambiente estarão no arquivo **.env_example**, lembrando que o banco escolhido foi o **Postgresql**🐘
+- **Banco e tabelas** -> Utilize o comando abaixao para criação das tabelas: 
+```sh
+ npx prisma migrate dev
+```
 ## 🛣️ ROTAS:
 - **localhost:8080/movie (POST)** -> Criação de um filme
   - name, description
