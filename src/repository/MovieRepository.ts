@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const getMovies = async () => {
+export const getMovies = async (page: number = 0, perPage: number = 5) => {
   return await prisma.movie.findMany({
     include: {
       avaliations: {
@@ -11,13 +11,15 @@ export const getMovies = async () => {
         },
       },
     },
+    skip: page * perPage,
+    take: perPage,
   });
 }
 
-export const getSpecificMovie = async (name: string) => {
+export const getSpecificMovie = async (id: string) => {
   const movie = await prisma.movie.findUnique({
     where: {
-      name
+      id
     },
     include: {
       avaliations: true,
@@ -69,6 +71,22 @@ export const avaliateMovie = async (id: string, score: number) => {
       score: score,
     }
   })
+
+  return movie;
+}
+
+export const getSpecificMovieNotEvaluated = async () => {
+  const movie = await prisma.movie.findFirst({
+    where: {
+      NOT: {
+        avaliations: {
+          some: {
+            score: undefined
+          }
+        }
+      }
+    }
+  });
 
   return movie;
 }

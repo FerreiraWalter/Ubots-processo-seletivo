@@ -2,8 +2,8 @@ import { getMovies } from "../repository/MovieRepository"
 
 
 class ListMovieService {
-  async handle() {
-    return await getMovies();
+  async handle(page: number | undefined, perPage: number | undefined) {
+    return await getMovies(page, perPage);
   }
 }
 
