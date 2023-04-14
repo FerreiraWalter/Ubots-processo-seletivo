@@ -9,7 +9,7 @@ class CreateMovieController {
   
       const createMovieService = new CreateMovieService();
       const result = await createMovieService.handle({name, description});
-  
+
       return created(httpResponse, result)
     } catch(error) {
       return serverError(httpResponse, {error});

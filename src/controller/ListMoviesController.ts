@@ -7,6 +7,15 @@ class ListMoviesController {
     try {
       const { page, perPage } = httpRequest.query;
 
+      const parsedPage = parseInt(page as string);
+      const parsedPerPage = parseInt(perPage as string);
+  
+      if (Number.isNaN(parsedPage) || Number.isNaN(parsedPerPage)) {
+        const listMovieService = new ListMovieService();
+        const result = await listMovieService.handle();
+        return ok(httpResponse, result)
+      }
+
       const listMovieService = new ListMovieService();
       const result = await listMovieService.handle(parseInt(page as string), parseInt(perPage as string));
   

@@ -29,6 +29,19 @@ export const getSpecificMovie = async (id: string) => {
   return movie;
 }
 
+export const getSpecificMovieByName = async (name: string) => {
+  const movie = await prisma.movie.findUnique({
+    where: {
+      name
+    },
+    include: {
+      avaliations: true,
+    },
+  });
+
+  return movie;
+}
+
 export const setMovie = async (name: string, description: string) => {
   const createdMovie = await prisma.movie.create({
     data: {

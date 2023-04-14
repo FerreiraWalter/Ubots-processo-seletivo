@@ -18,11 +18,11 @@ const avaliationMovieController = new AvaliationMovieController();
 const listSpecificMovieController = new ListSpecificMovieController();
 
 movieRoutes.get('/', listMoviesController.execute);
+movieRoutes.get('/indicate', indicateMovieController.execute);
 movieRoutes.post('/', createMovieController.execute);
 movieRoutes.put('/:id', updateMovieController.execute);
 movieRoutes.delete('/:id', deleteMovieController.execute);
 movieRoutes.get('/:id', listSpecificMovieController.execute);
-movieRoutes.get('/indicate', indicateMovieController.execute);
 movieRoutes.post('/avaliation', avaliationMovieController.execute);
 
 export default movieRoutes;
